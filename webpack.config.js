@@ -6,11 +6,12 @@ module.exports = {
   },
   module: {
     loaders: [
-      { loader: 'babel-loader', test: /\.jsx?$/, exclude: /node_modules/ }
+      { test: /\.less$/, loader: 'style!css!less', exclude: /node_modules/ },
+      { test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/ }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.less']
   },
   devtool: 'source-map'
 }

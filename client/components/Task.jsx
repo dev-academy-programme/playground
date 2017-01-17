@@ -1,16 +1,32 @@
 import React, {PropTypes} from 'react'
+import CodeMirror from 'react-codemirror'
+import js from 'codemirror/mode/javascript/javascript'
 
-const Task = ({task}) => (
-  <div>
-    {task.description}
-  </div>
-)
+import css from './Task.less'
 
-Task.propTypes = {
-  task: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired
-  }).isRequired
-}
+export default React.createClass({
+  displayName: 'Task',
 
-export default Task
+  propTypes: {
+    task: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      description: PropTypes.string.isRequired
+    }).isRequired
+  },
+
+  render () {
+    const options = {
+      lineNumbers: true,
+      mode: 'javascript',
+      smartIndent: true,
+      tabSize: 2,
+      theme: 'monokai'
+    }
+    return (
+      <div>
+        {this.props.task.description}
+        <CodeMirror value="// Foo" options={options} />
+      </div>
+    )
+  }
+})
