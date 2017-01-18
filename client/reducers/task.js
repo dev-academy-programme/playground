@@ -1,4 +1,4 @@
-const tasks = (state = { id: 0, description: 'Hi' }, action) => {
+const tasks = (state = { id: 0, description: 'Task' }, action) => {
   switch (action.type) {
     case 'TASK_CORRECT':
       return Object.assign({}, state, { correct: true })

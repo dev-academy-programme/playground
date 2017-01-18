@@ -81,7 +81,10 @@
       "standard",
       "promise",
       "react"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": ["error", { "varsIgnorePattern": "^__" }]
+    }
   },
   "jest": {
     "moduleNameMapper": {

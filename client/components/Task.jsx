@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
 import CodeMirror from 'react-codemirror'
-import js from 'codemirror/mode/javascript/javascript'
 
-import css from './Task.less'
+import __jsmode from 'codemirror/mode/javascript/javascript'
+import __less from './Task.less'
 
 export default React.createClass({
   displayName: 'Task',
