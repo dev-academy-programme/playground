@@ -1,0 +1,3 @@
+export const TASK_SUBMITTED = 'TASK_SUBMITTED'
+export const TASK_CORRECT = 'TASK_CORRECT'
+export const TASK_INCORRECT = 'TASK_INCORRECT'
