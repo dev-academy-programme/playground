@@ -7,14 +7,6 @@ import __less from './Task.less'
 export default React.createClass({
   displayName: 'Task',
 
-  propTypes: {
-    task: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      description: PropTypes.string.isRequired,
-      correct: PropTypes.boolean
-    }).isRequired
-  },
-
   render () {
     const options = {
       lineNumbers: true,
@@ -29,5 +21,14 @@ export default React.createClass({
         <CodeMirror value="// Code goes here..." options={options} />
       </div>
     )
-  }
+  },
+
+  propTypes: {
+    task: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      description: PropTypes.string.isRequired,
+      correct: PropTypes.boolean,
+      submitted: PropTypes.boolean
+    }).isRequired
+  },
 })
