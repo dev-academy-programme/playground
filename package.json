@@ -14,14 +14,12 @@
     "url": "https://github.com/dev-academy-programme/playground/issues"
   },
   "homepage": "https://github.com/dev-academy-programme/playground#readme",
-
   "dependencies": {
     "ava": "^0.17.0",
     "koa": "^2.0.0-alpha.7",
     "koa-bodyparser": "^3.2.0",
     "koa-router": "^7.0.1"
   },
-
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
@@ -49,24 +47,21 @@
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-mock-store": "^1.2.1",
-    "redux-thunk": "^2.1.0",
+    "redux-thunk": "^2.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
-
   "engines": {
     "node": ">= 7.0.0",
     "npm": ">= 3.0.0"
   },
-
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --content-base public/ --hot --inline",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },
-
   "babel": {
     "presets": [
       "es2015",
@@ -77,7 +72,6 @@
       "transform-runtime"
     ]
   },
-
   "eslintConfig": {
     "env": {
       "jest": true
@@ -100,10 +94,14 @@
       "react"
     ],
     "rules": {
-      "no-unused-vars": ["error", { "varsIgnorePattern": "^__" }]
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "^__"
+        }
+      ]
     }
   },
-
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
