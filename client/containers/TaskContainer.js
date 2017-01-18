@@ -3,9 +3,9 @@ import {connect} from 'react-redux'
 import Task from '../components/Task'
 import { submitTask, taskCorrect, taskIncorrect } from '../actions/task.js'
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ task }) => {
   return {
-    task: state.task
+    task
   }
 }
 
