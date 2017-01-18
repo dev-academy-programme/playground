@@ -13,5 +13,13 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.less']
   },
+  devServer: {
+    proxy: {
+      '/api/v1': {
+        target: 'http://localhost:3000',
+        secure: false
+      }
+    }
+  },
   devtool: 'source-map'
 }
