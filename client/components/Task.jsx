@@ -10,7 +10,8 @@ export default React.createClass({
   propTypes: {
     task: PropTypes.shape({
       id: PropTypes.number.isRequired,
-      description: PropTypes.string.isRequired
+      description: PropTypes.string.isRequired,
+      correct: PropTypes.boolean
     }).isRequired
   },
 
@@ -23,7 +24,7 @@ export default React.createClass({
       theme: 'monokai'
     }
     return (
-      <div>
+      <div className={this.props.task.correct ? 'green' : 'red'}>
         {this.props.task.description}
         <CodeMirror value="// Code goes here..." options={options} />
       </div>
