@@ -25,7 +25,7 @@ export default React.createClass({
     return (
       <div>
         {this.props.task.description}
-        <CodeMirror value="// Foo" options={options} />
+        <CodeMirror value="// Code goes here..." options={options} />
       </div>
     )
   }
