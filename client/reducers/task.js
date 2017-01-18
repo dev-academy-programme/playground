@@ -2,7 +2,7 @@ import * as types from '../actions/types'
 
 const initial = {
   id: 0,
-  description: 'Task',
+  description: 'Create an object literal like this: `{}`',
   instructions: {
     head: 'Empty object literal',
     subhead: 'Creating blank objects: sound simple?',

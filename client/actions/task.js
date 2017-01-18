@@ -1,6 +1,9 @@
-import * as types from '../actions/types'
+import request from 'superagent'
 
-export function submitTask () {
+import { apiSave, apiError, apiEnd } from './api'
+import * as types from './types'
+
+export function taskSubmitted () {
   return { type: types.TASK_SUBMITTED }
 }
 
@@ -10,4 +13,22 @@ export function taskCorrect () {
 
 export function taskIncorrect () {
   return { type: types.TASK_INCORRECT }
+}
+
+export const submitTask = code => {
+  return (dispatch, getState) => {
+    const taskId = getState().task.id
+    dispatch(apiSave())
+    dispatch(taskSubmitted())
+    request
+      .post(`/api/v1/tasks/${taskId}/check`)
+      .send({ code })
+      .end((err, res) => {
+        if (err) {
+          return dispatch(apiError(err))
+        }
+        dispatch(taskCorrect())
+        dispatch(apiEnd())
+      })
+  }
 }

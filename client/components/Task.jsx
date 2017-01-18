@@ -9,6 +9,16 @@ import __less from './Task.less'
 export default React.createClass({
   displayName: 'Task',
 
+  getInitialState () {
+    return {
+      code: '// Code goes here...'
+    }
+  },
+
+  updateCode (code) {
+    this.setState({ code })
+  },
+
   render () {
     const options = {
       lineNumbers: true,
@@ -19,9 +29,9 @@ export default React.createClass({
     }
     return (
       <div className="task">
-        <div className={`task-message ${this.props.task.correct ? 'green' : 'red'}`}>{this.props.task.description}</div>
-        <CodeMirror value="// Code goes here..." options={options} />
-        <button onClick=
+        <div className={`task-message ${this.props.task.correct ? 'green' : 'red'}`}>{this.props.task.correct ? 'Great!' : this.props.task.description}</div>
+        <CodeMirror value={this.state.code} onChange={this.updateCode} options={options} />
+        <button onClick={() => this.props.submitTask(this.state.code)}>Submit</button>
         <Instructions content={this.props.task.instructions} />
       </div>
     )
