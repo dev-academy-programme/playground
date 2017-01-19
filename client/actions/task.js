@@ -27,7 +27,12 @@ export const submitTask = code => {
         if (err) {
           return dispatch(apiError(err))
         }
-        dispatch(taskCorrect())
+        if (res.notFound) {
+          return dispatch(apiError({ msg: 'That task does not appear to exist.' }))
+        }
+        if (res.body.correct) {
+          dispatch(taskCorrect())
+        }
         dispatch(apiEnd())
       })
   }
