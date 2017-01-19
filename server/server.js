@@ -3,6 +3,9 @@ const KoaRouter = require('koa-router')
 const koaBody = require('koa-bodyparser')
 const koaStatic = require('koa-static')
 
+const config = require('./knexfile')[process.env.NODE_ENV || 'development']
+const connection = require('knex')(config)
+
 const app = new Koa()
 const api = new KoaRouter({ prefix: '/api/v1' })
 const PORT = 3000
