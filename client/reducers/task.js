@@ -1,6 +1,6 @@
 import * as types from '../actions/types'
 
-const task = (state = { id: 0, title: '', title: 'Loading...', instructions: { body: '' } }, action) => {
+const task = (state = { id: 0, title: 'Loading...', instructions: '' }, action) => {
   switch (action.type) {
     case types.TASK_CORRECT:
       return Object.assign({}, state, { correct: true })

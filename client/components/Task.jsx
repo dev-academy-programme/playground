@@ -47,10 +47,7 @@ export default React.createClass({
     task: PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      instructions: PropTypes.shape({
-        subhead: PropTypes.string,
-        body: PropTypes.string.isRequired
-      }),
+      instructions: PropTypes.string,
       correct: PropTypes.boolean,
       submitted: PropTypes.boolean
     }).isRequired
