@@ -15,6 +15,13 @@ export function taskIncorrect () {
   return { type: types.TASK_INCORRECT }
 }
 
+export function taskNext (task) {
+  return {
+    type: types.TASK_NEXT,
+    task
+  }
+}
+
 export function loadTasks (tasks) {
   return {
     type: types.TASKS_LOAD,
@@ -32,6 +39,8 @@ export const getTasks = () => {
           return dispatch(apiError(err))
         }
         dispatch(loadTasks(res.body))
+        const uncompletedTask = res.body.find(task => !task.complete)
+        dispatch(taskNext(uncompletedTask))
         dispatch(apiEnd())
       })
   }

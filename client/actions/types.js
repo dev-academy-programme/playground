@@ -1,6 +1,7 @@
 export const TASK_SUBMITTED = 'TASK_SUBMITTED'
 export const TASK_CORRECT = 'TASK_CORRECT'
 export const TASK_INCORRECT = 'TASK_INCORRECT'
+export const TASK_NEXT = 'TASK_NEXT'
 
 export const TASKS_LOAD = 'TASKS_LOAD'
 

@@ -15,6 +15,10 @@ export default React.createClass({
     }
   },
 
+  componentDidMount () {
+    this.props.getTasks()
+  },
+
   updateCode (code) {
     this.setState({ code })
   },
@@ -29,7 +33,7 @@ export default React.createClass({
     }
     return (
       <div className="task">
-        <div className={`task-message ${this.props.task.correct ? 'green' : 'red'}`}>{this.props.task.correct ? 'Great!' : this.props.task.description}</div>
+        <div className={`task-message ${this.props.task.correct ? 'green' : 'red'}`}>{this.props.task.correct ? 'Great!' : this.props.task.title}</div>
         <CodeMirror value={this.state.code} onChange={this.updateCode} options={options} />
         <button onClick={() => this.props.submitTask(this.state.code)}>Submit</button>
         <Instructions content={this.props.task.instructions} />
@@ -38,12 +42,12 @@ export default React.createClass({
   },
 
   propTypes: {
+    getTasks: PropTypes.func.isRequired,
     submitTask: PropTypes.func.isRequired,
     task: PropTypes.shape({
       id: PropTypes.number.isRequired,
-      description: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
       instructions: PropTypes.shape({
-        head: PropTypes.string.isRequired,
         subhead: PropTypes.string,
         body: PropTypes.string.isRequired
       }),

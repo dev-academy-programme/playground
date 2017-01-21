@@ -12,7 +12,6 @@ const Instructions = ({ content }) => (
 
 Instructions.propTypes = {
   content: PropTypes.shape({
-    head: PropTypes.string.isRequired,
     subhead: PropTypes.string,
     body: PropTypes.string.isRequired
   })

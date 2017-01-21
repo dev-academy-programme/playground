@@ -1,16 +1,6 @@
 import * as types from '../actions/types'
 
-const initial = {
-  id: 1,
-  description: 'Create an object literal like this: `{}`',
-  instructions: {
-    head: 'Empty object literal',
-    subhead: 'Creating blank objects: sound simple?',
-    body: 'Assign an empty object literal to a variable named `obj`.'
-  }
-}
-
-const task = (state = initial, action) => {
+const task = (state = { id: 0, title: '', title: 'Loading...', instructions: { body: '' } }, action) => {
   switch (action.type) {
     case types.TASK_CORRECT:
       return Object.assign({}, state, { correct: true })
@@ -20,6 +10,9 @@ const task = (state = initial, action) => {
 
     case types.TASK_SUBMITTED:
       return Object.assign({}, state, { submitted: true })
+
+    case types.TASK_NEXT:
+      return { ...action.task }
 
     default:
       return state

@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 
 import Task from '../components/Task'
-import { submitTask } from '../actions/task.js'
+import { getTasks, submitTask } from '../actions/task.js'
 
 const mapStateToProps = ({ task }) => {
   return {
@@ -11,5 +11,5 @@ const mapStateToProps = ({ task }) => {
 
 export default connect(
   mapStateToProps,
-  { submitTask }
+  { getTasks, submitTask }
 )(Task)
