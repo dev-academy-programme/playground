@@ -10,7 +10,7 @@ const initial = {
   }
 }
 
-const tasks = (state = initial, action) => {
+const task = (state = initial, action) => {
   switch (action.type) {
     case types.TASK_CORRECT:
       return Object.assign({}, state, { correct: true })
@@ -26,4 +26,4 @@ const tasks = (state = initial, action) => {
   }
 }
 
-export default tasks
+export default task

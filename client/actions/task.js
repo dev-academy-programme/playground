@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import { apiSave, apiError, apiEnd } from './api'
+import { apiLoad, apiSave, apiError, apiEnd } from './api'
 import * as types from './types'
 
 export function taskSubmitted () {
@@ -13,6 +13,28 @@ export function taskCorrect () {
 
 export function taskIncorrect () {
   return { type: types.TASK_INCORRECT }
+}
+
+export function loadTasks (tasks) {
+  return {
+    type: types.TASKS_LOAD,
+    tasks
+  }
+}
+
+export const getTasks = () => {
+  return dispatch => {
+    dispatch(apiLoad())
+    request
+      .get('/api/v1/tasks')
+      .end((err, res) => {
+        if (err) {
+          return dispatch(apiError(err))
+        }
+        dispatch(loadTasks(res.body))
+        dispatch(apiEnd())
+      })
+  }
 }
 
 export const submitTask = code => {

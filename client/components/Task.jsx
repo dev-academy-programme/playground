@@ -38,6 +38,7 @@ export default React.createClass({
   },
 
   propTypes: {
+    submitTask: PropTypes.func.isRequired,
     task: PropTypes.shape({
       id: PropTypes.number.isRequired,
       description: PropTypes.string.isRequired,
